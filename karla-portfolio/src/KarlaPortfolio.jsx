@@ -1,3 +1,4 @@
+import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 const PROFILE = {
   name: "Karla Lewis",
@@ -6,12 +7,11 @@ const PROFILE = {
     "I design and build clean, reliable web apps — from pixel‑perfect UIs to secure, scalable APIs.",
   location: "Los Angeles, CA • Remote‑friendly",
   email: "karlaoglivie@gmail.com",
-  resumeUrl: "/resume.pdf", // ← drop your resume file into /public as resume.pdf
+  resumeUrl: "/resume.pdf",
   github: "https://github.com/Karlita2227",
-  linkedin: "#", // ← add when ready
+  linkedin: "www.linkedin.com/in/karlalewis1019", 
 };
 
-// --- Services you offer ---
 const SERVICES = [
   {
     title: "Frontend Development",
@@ -39,7 +39,6 @@ const SERVICES = [
   },
 ];
 
-// --- Projects (add more anytime) ---
 const ALL_PROJECTS = [
   {
     title: "Team TV Show Website (Group Project)",
@@ -94,7 +93,6 @@ const ALL_PROJECTS = [
 
 const TAGS = ["All", "Frontend", "Backend", "Full‑Stack", "Database", "Team", "React", "Prisma", "Supabase", "API", "UI", "SQL", "HTML/CSS/JS"];
 
-// --- Small UI bits ---
 const Chip = ({ active, children, onClick }) => (
   <button
     onClick={onClick}
@@ -180,7 +178,7 @@ export default function KarlaPortfolio() {
   }, [filter, q]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-white text-slate-900">
+    <div className="min-h-screen bg-pink-100 text-slate-900">
       {/* Nav */}
       <header className="sticky top-0 z-40 bg-white/70 backdrop-blur border-b">
         <nav className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
