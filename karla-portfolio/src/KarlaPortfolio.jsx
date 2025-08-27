@@ -1,7 +1,4 @@
-import React, { useMemo, useState } from "react";
 import { motion } from "framer-motion";
-
-// --- Editable profile details ---
 const PROFILE = {
   name: "Karla Lewis",
   role: "Full‑Stack Web Developer",
