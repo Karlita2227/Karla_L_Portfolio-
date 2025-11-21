@@ -1,15 +1,16 @@
 import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
+
 const PROFILE = {
   name: "Karla Lewis",
-  role: "Full‑Stack Web Developer",
+  role: "Full-Stack Web Developer",
   tagline:
-    "I design and build clean, reliable web apps — from pixel‑perfect UIs to secure, scalable APIs.",
-  location: "Los Angeles, CA • Remote‑friendly",
+    "I design and build clean, reliable web apps — from pixel-perfect UIs to secure, scalable APIs.",
+  location: "Los Angeles, CA • Remote-friendly",
   email: "karlaoglivie@gmail.com",
   resumeUrl: "/resume.pdf",
   github: "https://github.com/Karlita2227",
-  linkedin: "www.linkedin.com/in/karlalewis1019", 
+  linkedin: "www.linkedin.com/in/karlalewis1019",
 };
 
 const SERVICES = [
@@ -28,8 +29,8 @@ const SERVICES = [
   {
     title: "Database & DevOps",
     blurb:
-      "Schema design, seed data, and smooth deploys to Netlify/Vercel with CI‑ready project structure.",
-    bullets: ["Postgres/SQLite", "Seeding & testing", "Simple CI set‑up"],
+      "Schema design, seed data, and smooth deploys to Netlify/Vercel with CI-ready project structure.",
+    bullets: ["Postgres/SQLite", "Seeding & testing", "Simple CI set-up"],
   },
   {
     title: "Team Workflow",
@@ -48,11 +49,11 @@ const ALL_PROJECTS = [
     tags: ["Frontend", "Team", "HTML/CSS/JS"],
   },
   {
-    title: "Donezo — Full‑Stack Productivity App",
+    title: "Donezo — Full-Stack Productivity App",
     repo: "https://github.com/Karlita2227/Karla_L_donezo",
     summary:
       "React + Express + Supabase + Prisma stack with auth, forms, and grid views for tasks.",
-    tags: ["Full‑Stack", "React", "Supabase", "Prisma"],
+    tags: ["Full-Stack", "React", "Supabase", "Prisma"],
   },
   {
     title: "Intro to Supabase",
@@ -72,7 +73,7 @@ const ALL_PROJECTS = [
     title: "U.S. Public Library Database",
     repo: "https://github.com/Karlita2227/KarlaL_US_Public_Library_Database",
     summary:
-      "Data modeling and queries against a public‑library dataset with clean schema.",
+      "Data modeling and queries against a public-library dataset with clean schema.",
     tags: ["Database", "SQL", "Modeling"],
   },
   {
@@ -91,7 +92,21 @@ const ALL_PROJECTS = [
   },
 ];
 
-const TAGS = ["All", "Frontend", "Backend", "Full‑Stack", "Database", "Team", "React", "Prisma", "Supabase", "API", "UI", "SQL", "HTML/CSS/JS"];
+const TAGS = [
+  "All",
+  "Frontend",
+  "Backend",
+  "Full-Stack",
+  "Database",
+  "Team",
+  "React",
+  "Prisma",
+  "Supabase",
+  "API",
+  "UI",
+  "SQL",
+  "HTML/CSS/JS",
+];
 
 const Chip = ({ active, children, onClick }) => (
   <button
@@ -148,7 +163,9 @@ const ProjectCard = ({ p }) => (
         <h3 className="font-semibold text-lg group-hover:text-pink-700 transition">
           {p.title}
         </h3>
-        <span className="text-xs px-2 py-1 rounded-full bg-pink-50 text-pink-700 border border-pink-200">GitHub</span>
+        <span className="text-xs px-2 py-1 rounded-full bg-pink-50 text-pink-700 border border-pink-200">
+          GitHub
+        </span>
       </div>
       <p className="mt-2 text-slate-600 text-sm">{p.summary}</p>
       <div className="mt-4 flex flex-wrap gap-2">
@@ -172,13 +189,33 @@ export default function KarlaPortfolio() {
   const projects = useMemo(() => {
     return ALL_PROJECTS.filter((p) => {
       const passTag = filter === "All" || p.tags.includes(filter);
-      const passQ = (p.title + p.summary + p.tags.join(" ")).toLowerCase().includes(q.toLowerCase());
+      const passQ = (
+        p.title +
+        p.summary +
+        p.tags.join(" ")
+      )
+        .toLowerCase()
+        .includes(q.toLowerCase());
       return passTag && passQ;
     });
   }, [filter, q]);
 
   return (
-    <div className="min-h-screen bg-pink-100 text-slate-900">
+    <div className="relative min-h-screen bg-pink-100 text-slate-900">
+      {/* 🌸 Floating Profile Picture (Top Right) */}
+      <div className="absolute top-6 right-6">
+        <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-40 md:h-40">
+          <div className="absolute inset-0 rounded-full bg-pink-500/20 blur-2xl" />
+          <img
+            src="/karla-profile.jpeg"
+            alt="Karla Lewis"
+            className="relative w-full h-full rounded-full object-cover border-4 border-pink-300 shadow-lg shadow-pink-300/70
+                       transition-transform duration-300 hover:-translate-y-1 hover:scale-105"
+          />
+          <div className="pointer-events-none absolute inset-0 rounded-full ring-2 ring-pink-300/70 animate-pulse" />
+        </div>
+      </div>
+
       {/* Nav */}
       <header className="sticky top-0 z-40 bg-white/70 backdrop-blur border-b">
         <nav className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
@@ -186,10 +223,18 @@ export default function KarlaPortfolio() {
             <span className="text-pink-700">Karla</span> • Portfolio
           </a>
           <div className="hidden md:flex items-center gap-6 text-sm">
-            <a href="#services" className="hover:text-pink-700">Services</a>
-            <a href="#projects" className="hover:text-pink-700">Projects</a>
-            <a href="#skills" className="hover:text-pink-700">Skills</a>
-            <a href="#contact" className="hover:text-pink-700">Contact</a>
+            <a href="#services" className="hover:text-pink-700">
+              Services
+            </a>
+            <a href="#projects" className="hover:text-pink-700">
+              Projects
+            </a>
+            <a href="#skills" className="hover:text-pink-700">
+              Skills
+            </a>
+            <a href="#contact" className="hover:text-pink-700">
+              Contact
+            </a>
           </div>
           <a
             href={PROFILE.github}
@@ -215,7 +260,8 @@ export default function KarlaPortfolio() {
             animate={{ opacity: 1, y: 0 }}
             className="text-3xl md:text-5xl font-extrabold tracking-tight"
           >
-            Hi, I’m {PROFILE.name}. <span className="text-pink-700">{PROFILE.role}</span>
+            Hi, I’m {PROFILE.name}.{" "}
+            <span className="text-pink-700">{PROFILE.role}</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 8 }}
@@ -241,7 +287,9 @@ export default function KarlaPortfolio() {
               Email Me
             </a>
           </div>
-          <div className="mt-3 text-sm text-slate-500">{PROFILE.location}</div>
+          <div className="mt-3 text-sm text-slate-500">
+            {PROFILE.location}
+          </div>
         </div>
       </section>
 
@@ -249,7 +297,7 @@ export default function KarlaPortfolio() {
       <Section
         id="services"
         title="Services"
-        subtitle="Ways I can help your team ship high‑quality web software."
+        subtitle="Ways I can help your team ship high-quality web software."
       >
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {SERVICES.map((s) => (
@@ -289,7 +337,11 @@ export default function KarlaPortfolio() {
           />
           <div className="flex flex-wrap gap-2">
             {TAGS.map((t) => (
-              <Chip key={t} active={filter === t} onClick={() => setFilter(t)}>
+              <Chip
+                key={t}
+                active={filter === t}
+                onClick={() => setFilter(t)}
+              >
                 {t}
               </Chip>
             ))}
@@ -309,24 +361,31 @@ export default function KarlaPortfolio() {
       </Section>
 
       {/* Skills */}
-      <Section id="skills" title="Skills" subtitle="Tech I use day‑to‑day.">
+      <Section
+        id="skills"
+        title="Skills"
+        subtitle="Tech I use day-to-day."
+      >
         <div className="grid md:grid-cols-3 gap-4">
           <div className="rounded-2xl border bg-white/70 backdrop-blur p-5">
             <h4 className="font-semibold">Frontend</h4>
             <p className="mt-2 text-sm text-slate-700">
-              React, Vite, Tailwind, DaisyUI, HTML, CSS, JavaScript (ES6+), Accessibility
+              React, Vite, Tailwind, DaisyUI, HTML, CSS, JavaScript (ES6+),
+              Accessibility
             </p>
           </div>
           <div className="rounded-2xl border bg-white/70 backdrop-blur p-5">
             <h4 className="font-semibold">Backend & Data</h4>
             <p className="mt-2 text-sm text-slate-700">
-              Node.js, Express, REST, Prisma, Supabase (Auth/DB), Postgres, SQLite
+              Node.js, Express, REST, Prisma, Supabase (Auth/DB), Postgres,
+              SQLite
             </p>
           </div>
           <div className="rounded-2xl border bg-white/70 backdrop-blur p-5">
             <h4 className="font-semibold">Workflow</h4>
             <p className="mt-2 text-sm text-slate-700">
-              Git & GitHub (feature → develop → main), PR reviews, Postman, README docs, Screenshots
+              Git & GitHub (feature → develop → main), PR reviews, Postman,
+              README docs, Screenshots
             </p>
           </div>
         </div>
@@ -343,21 +402,34 @@ export default function KarlaPortfolio() {
             <h4 className="font-semibold">Contact</h4>
             <ul className="mt-2 text-sm text-slate-700 space-y-1">
               <li>
-                Email: {" "}
-                <a className="text-pink-700 underline" href={`mailto:${PROFILE.email}`}>
+                Email:{" "}
+                <a
+                  className="text-pink-700 underline"
+                  href={`mailto:${PROFILE.email}`}
+                >
                   {PROFILE.email}
                 </a>
               </li>
               <li>
-                GitHub: {" "}
-                <a className="text-pink-700 underline" href={PROFILE.github} target="_blank" rel="noreferrer">
+                GitHub:{" "}
+                <a
+                  className="text-pink-700 underline"
+                  href={PROFILE.github}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   {PROFILE.github}
                 </a>
               </li>
               {PROFILE.linkedin !== "#" && (
                 <li>
-                  LinkedIn: {" "}
-                  <a className="text-pink-700 underline" href={PROFILE.linkedin} target="_blank" rel="noreferrer">
+                  LinkedIn:{" "}
+                  <a
+                    className="text-pink-700 underline"
+                    href={PROFILE.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     {PROFILE.linkedin}
                   </a>
                 </li>
@@ -410,12 +482,19 @@ export default function KarlaPortfolio() {
       <footer className="py-10 border-t">
         <div className="max-w-6xl mx-auto px-4 text-sm text-slate-600 flex flex-wrap items-center justify-between gap-2">
           <div>
-            © {new Date().getFullYear()} {PROFILE.name}. Built with React + Tailwind.
+            © {new Date().getFullYear()} {PROFILE.name}. Built with React +
+            Tailwind.
           </div>
           <div className="flex items-center gap-3">
-            <a href="#services" className="hover:text-pink-700">Services</a>
-            <a href="#projects" className="hover:text-pink-700">Projects</a>
-            <a href="#contact" className="hover:text-pink-700">Contact</a>
+            <a href="#services" className="hover:text-pink-700">
+              Services
+            </a>
+            <a href="#projects" className="hover:text-pink-700">
+              Projects
+            </a>
+            <a href="#contact" className="hover:text-pink-700">
+              Contact
+            </a>
           </div>
         </div>
       </footer>
