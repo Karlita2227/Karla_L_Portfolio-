@@ -5,7 +5,7 @@ A responsive developer portfolio built with **React**, **Vite**, and **Tailwind 
 
 The site highlights my services, selected projects, technical skills, and an easy way to contact me or download my résumé.
 
-> 🔗 **Live Site:** _
+> 🔗 **Live Site:** _ https://karlalewportfolio.netlify.app
 > 🎥 **Demo Video:** _[Watch the demo] ./screenrecording.jpeg
 
 ---
