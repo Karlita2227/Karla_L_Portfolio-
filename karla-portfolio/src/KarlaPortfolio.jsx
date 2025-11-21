@@ -5,7 +5,7 @@ const PROFILE = {
   name: "Karla Lewis",
   role: "Full-Stack Web Developer",
   tagline:
-    "I design and build clean, reliable web apps — from pixel-perfect UIs to secure, scalable APIs.",
+    "Designs and builds clean, reliable web apps — from pixel-perfect UIs to secure, scalable APIs.",
   location: "Los Angeles, CA • Remote-friendly",
   email: "karlaoglivie@gmail.com",
   resumeUrl: "/resume.pdf",
@@ -41,6 +41,14 @@ const SERVICES = [
 ];
 
 const ALL_PROJECTS = [
+  {
+    title: "SceneIt — Final Group Project",
+    repo: "https://github.com/ControlAltTea/SceneIt",
+    summary:
+      "A collaborative full-stack movie discovery platform built by my team. Includes movie search, user interactions, and polished UI.",
+    tags: ["Full-Stack", "Team", "React", "API"],
+  },
+  
   {
     title: "Team TV Show Website (Group Project)",
     repo: "https://github.com/Karlita2227/GroupProject_TeamTvShowWebsite",
@@ -90,6 +98,14 @@ const ALL_PROJECTS = [
       "Disney character explorer with video background, audio controls, and search.",
     tags: ["Frontend", "UI", "JavaScript"],
   },
+  {
+    title: "KarlaLBoxingGame — Boxing Game Project",
+    repo: "https://github.com/Karlita2227/KarlaLBoxingGame.git",
+    summary:
+      "A JavaScript-based two-player turn-based boxing game with animations, health tracking, attack logic and player interaction.",
+    tags: ["Frontend", "JavaScript", "Game Dev"],
+  },
+  
 ];
 
 const TAGS = [
